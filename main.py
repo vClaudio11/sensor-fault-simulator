@@ -37,6 +37,7 @@ print("Precision:", precision_score(y_test, predictions, pos_label="fault"))
 print("Recall:", recall_score(y_test, predictions, pos_label="fault"))
 print("F1:", f1_score(y_test, predictions, pos_label="fault"))
 
+# Plot readings line graph with mean average
 df.plot(y="Readings", figsize=(10,4))
 plt.axhline(y=df["Readings"].mean(), color="gray", linestyle="--")
 plt.show()
