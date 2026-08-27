@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
+import matplotlib.pyplot as plt
 
 sensor = Sensor(sensor_type="temp", baseline=20, noise_std=0.5)
 clean = sensor.generate_stream(n_readings=100)
@@ -30,9 +31,14 @@ predictions = model.predict(X_test)
 print(predictions)
 print(y_test.values)
 
+# Output the precision, recall and F1 score of the predictions
 print(confusion_matrix(y_test, predictions, labels=["fault", "normal"]))
 print("Precision:", precision_score(y_test, predictions, pos_label="fault"))
 print("Recall:", recall_score(y_test, predictions, pos_label="fault"))
 print("F1:", f1_score(y_test, predictions, pos_label="fault"))
+
+df.plot(y="Readings", figsize=(10,4))
+plt.axhline(y=df["Readings"].mean(), color="gray", linestyle="--")
+plt.show()
 
 print(faulted, labels)
