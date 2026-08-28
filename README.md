@@ -8,15 +8,25 @@ A small pipeline that simulates sensor readings, injects a progressive fault int
 - Saves the labeled data to CSV (`sensor_readings.csv`)
 - Trains a logistic regression classifier to detect faults from readings, evaluated with precision, recall, and F1
 
+## Scope
+This is a personal learning project, built incrementally as I work through an ML/AI roadmap. It intentionally starts simple and grows in complexity:
+- **Done:** simulate sensor data, inject a labeled fault, classify with logistic regression (precision/recall/F1)
+- **In progress:** classify fault sequences with a 1D CNN (PyTorch)
+- **Not yet started:** deployment / edge inference, real (non-simulated) sensor data
+
 ## Project structure
-simulator/
-sensor.py — Sensor class, generates clean readings
-noise.py — inject_fault(), injects a progressive fault + labels
-analysis/
-stats.py — saves readings + labels to CSV
-models/
-classifier.py — trains/evaluates a fault classifier
-main.py — runs the full pipeline
+```
+sensor_fault_simulator/
+├── simulator/
+│   └── noise.py - inject_fault() injects a progressive fault + labels
+│   └── sensor.py - Sensor class, generates clean readings
+├── analysis/
+│   ├── stats.py - saves readings + labels as CSV
+│   └── visualize.py - generates matplotlib graph for readings
+├── models/
+│   └── classifier.py - logistic regression model classifier
+└── main.py - runs the full pipeline
+```
 
 ## Setup
 python -m venv venv
