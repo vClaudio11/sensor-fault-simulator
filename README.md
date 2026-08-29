@@ -20,6 +20,8 @@ sensor_fault_simulator/
 ├── simulator/
 │   └── noise.py - inject_fault() injects a progressive fault + labels
 │   └── sensor.py - Sensor class, generates clean readings
+├── data/
+│   ├── generate_dataset.py - generates 2D array of sequences
 ├── analysis/
 │   ├── stats.py - saves readings + labels as CSV
 │   └── visualize.py - generates matplotlib graph for readings

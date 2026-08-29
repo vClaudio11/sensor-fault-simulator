@@ -6,3 +6,4 @@ def save_to_csv(readings, labels):
         writer.writerow(["Readings", "Status"])
         for reading, label in zip(readings, labels):
             writer.writerow([reading, label])
+
